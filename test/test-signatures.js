@@ -41,7 +41,7 @@ describe('Signatures', function() {
 
   describe('Signatures on saml:Response - Only 1 saml:Assertion', () => {
     //== VALID
-    it('R1A - both signed => valid', testOneResponse('/valid/response.root-signed.assertion-signed.xml', false, 1));
+    it('R1A - both signed => valid', testOneResponse('/valid/response.root-signed.assertion-signed.xml', false, 2));
     it('R1A - root signed => valid', testOneResponse('/valid/response.root-signed.assertion-unsigned.xml', false, 1));
     it('R1A - asrt signed => valid', testOneResponse('/valid/response.root-unsigned.assertion-signed.xml', false, 2));
 
@@ -90,12 +90,12 @@ describe('Signatures', function() {
 
     it('CRLF line endings', done => {
       const body = makeBody(samlResponseXml.replace(/\n/g, '\r\n'));
-      testOneResponseBody(body, false, 1)(done);
+      testOneResponseBody(body, false, 2)(done);
     });
 
     it('CR line endings', done => {
       const body = makeBody(samlResponseXml.replace(/\n/g, '\r'));
-      testOneResponseBody(body, false, 1)(done);
+      testOneResponseBody(body, false, 2)(done);
     });
 
   });
